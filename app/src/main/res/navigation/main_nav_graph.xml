@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <activity
+        android:id="@+id/splashscrenActivity"
+        android:name="com.pecpaker.leaderboard.view.SplashscrenActivity"
+        android:label="activity_splashscren"
+        tools:layout="@layout/activity_splashscren" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.pecpaker.leaderboard.view.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/learningLeaderFragment"
+        android:name="com.pecpaker.leaderboard.view.toplearners.LearningLeaderFragment"
+        android:label="fragment_learning_leader"
+        tools:layout="@layout/fragment_learning_leader" />
+    <fragment
+        android:id="@+id/skillIQFragment"
+        android:name="com.pecpaker.leaderboard.view.skilliq.SkillIQFragment"
+        android:label="fragment_skill_i_q"
+        tools:layout="@layout/fragment_skill_i_q" />
+    <fragment
+        android:id="@+id/submitFragment"
+        android:name="com.pecpaker.leaderboard.view.fragments.SubmitFragment"
+        android:label="fragment_submit2"
+        tools:layout="@layout/fragment_submit2" />
+</navigation>
