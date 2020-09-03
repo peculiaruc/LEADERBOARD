@@ -40,7 +40,7 @@ class LearningLeaderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById(R.id.topLearnersRecycler)
+        recyclerView = view.findViewById(R.id.Learner_Recycler_view)
         recyclerView.adapter = topLearnersAdapter
         layoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = layoutManager
@@ -59,9 +59,9 @@ class LearningLeaderFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<LearningLearderResponse>>, t: Throwable) {
-                tvName!!.text = t.message
-                tvCountry!!.text = t.message
-                tvHours!!.text = t.message
+                text_learner_name!!.text = t.message
+                text_learner_Country!!.text = t.message
+                text_learner_hours!!.text = t.message
                 //imgIq.setImageResource(R.drawable) = t.message
             }
         })

@@ -24,37 +24,37 @@
             android:layout_marginLeft="28dp" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/text_learner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/tvHours"
+            app:layout_constraintBottom_toTopOf="@+id/text_learner_hours"
             app:layout_constraintStart_toEndOf="@+id/img_topl"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="20dp" />
 
         <TextView
-            android:id="@+id/tvHours"
+            android:id="@+id/text_learner_hours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_topl"
-            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/text_learner_name"
             android:layout_marginLeft="20dp" />
 
         <TextView
-            android:id="@+id/tvCountry"
+            android:id="@+id/text_learner_Country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="@+id/tvHours"
-            app:layout_constraintStart_toEndOf="@+id/tvHours"
-            app:layout_constraintTop_toTopOf="@+id/tvHours"
+            app:layout_constraintBottom_toBottomOf="@+id/text_learner_hours"
+            app:layout_constraintStart_toEndOf="@+id/text_learner_hours"
+            app:layout_constraintTop_toTopOf="@+id/text_learner_hours"
             android:layout_marginLeft="8dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

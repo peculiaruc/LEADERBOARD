@@ -41,15 +41,15 @@ class SkillIQAdapter  () : RecyclerView.Adapter<SkillIQAdapter.SkillIQViewHolder
 
         fun bind(items: SkillIQResponse) {
 
-            itemView.tvIqName.text = items.name
-            itemView.tvIqScores.text = items.score.toString()
-            itemView.tvIqCountry.text = items.country
+            itemView.text_skill_name.text = items.name
+            itemView.text_skil_score.text = items.score.toString()
+            itemView.text_skil_Country.text = items.country
             Glide
-                .with(itemView.imgIq)
+                .with(itemView.img_skill)
                 .load(items.badgeUrl)
                 .centerCrop()
                 .placeholder(R.drawable.ic_skill_iq)
-                .into(itemView.imgIq)
+                .into(itemView.img_skill)
 
         }
 

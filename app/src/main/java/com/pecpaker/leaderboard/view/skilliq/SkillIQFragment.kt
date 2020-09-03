@@ -40,7 +40,7 @@ class SkillIQFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById(R.id.skillIqRecycler)
+        recyclerView = view.findViewById(R.id.skill_recycler_view)
         recyclerView.adapter = skillIQLeadersAdapter
         layoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = layoutManager
@@ -61,9 +61,9 @@ class SkillIQFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<SkillIQResponse>>, t: Throwable) {
-                tvIqName!!.text = t.message
-                tvIqCountry!!.text = t.message
-                tvIqScores!!.text = t.message
+                text_skill_name!!.text = t.message
+                text_skil_Country!!.text = t.message
+                text_skil_score!!.text = t.message
             }
         })
     }

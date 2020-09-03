@@ -41,9 +41,9 @@ class LearnerLeaderAdapter () : RecyclerView.Adapter<LearnerLeaderAdapter.Learni
 
         fun bind(items: LearningLearderResponse) {
 
-            itemView.tvName.text = items.name
-            itemView.tvHours.text = items.hours.toString()
-            itemView.tvCountry.text = items.country
+            itemView.text_learner_name.text = items.name
+            itemView.text_learner_hours.text = items.hours.toString()
+            itemView.text_learner_Country.text = items.country
             Glide
                 .with(itemView.img_topl)
                 .load(items.badgeUrl)

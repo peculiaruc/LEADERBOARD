@@ -8,9 +8,10 @@
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/skillIqRecycler"
+        android:id="@+id/skill_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +19,7 @@
         tools:listitem="@layout/list_item_skilliq" />
 
     <TextView
-        android:id="@+id/skill_iq_empty_text"
+        android:id="@+id/skill_no_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

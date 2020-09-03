@@ -8,9 +8,10 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/topLearnersRecycler"
+        android:id="@+id/Learner_Recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +19,7 @@
         tools:listitem="@layout/list_item_toplearner" />
 
     <TextView
-        android:id="@+id/top_learners_empty_text"
+        android:id="@+id/learner_no_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
