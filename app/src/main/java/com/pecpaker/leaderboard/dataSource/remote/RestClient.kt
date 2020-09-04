@@ -15,5 +15,13 @@ object RestClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View = LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
+//    val BASEUrl = "https://docs.google.com/forms/d/e/"
+//    val getRetrofit = Retrofit.Builder()
+//        .baseUrl(BASEUrl)
+//        .addConverterFactory(GsonConverterFactory.create())
+//        .build()
+
+
+    fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View =
+        LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 }
