@@ -165,7 +165,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
-            android:id="@+id/etFname"
+            android:id="@+id/First_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -176,13 +176,13 @@
             android:background="@drawable/edit_text_bck"
             android:hint="@string/first_name"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toStartOf="@+id/etLname"
+            app:layout_constraintEnd_toStartOf="@+id/last_name"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
-            android:id="@+id/etLname"
+            android:id="@+id/last_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -196,11 +196,11 @@
             android:textStyle=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/etFname"
+            app:layout_constraintStart_toEndOf="@+id/First_name"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <EditText
-            android:id="@+id/etEmail"
+            android:id="@+id/email_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -211,10 +211,10 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etFname" />
+            app:layout_constraintTop_toBottomOf="@+id/First_name" />
 
         <EditText
-            android:id="@+id/etProject"
+            android:id="@+id/project_git_link"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -225,7 +225,7 @@
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/email_address" />
 
         <ProgressBar
             android:id="@+id/submitProgressBar"
@@ -241,7 +241,7 @@
             app:layout_constraintVertical_bias="0.62" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubmit"
+            android:id="@+id/btn_submit"
             android:layout_width="104dp"
             android:layout_height="58dp"
             android:layout_marginTop="84dp"
@@ -256,12 +256,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etProject" />
+            app:layout_constraintTop_toBottomOf="@+id/project_git_link" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/views"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="btnSubmit, etFname, etLname, etEmail, etProject" />
+            app:constraint_referenced_ids="btn_submit, @+id/First_name, @+id/last_name, @+id/email_address, @+id/project_git_link" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

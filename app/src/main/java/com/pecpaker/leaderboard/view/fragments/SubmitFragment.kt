@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.pecpaker.leaderboard.R
 import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
@@ -46,30 +45,30 @@ class SubmitFragment : Fragment(), YesDialogClick {
 
         AreYouSureDialogFragment.setYesDialogClick(this)
 
-        btnSubmit.setOnClickListener {
-            val firstName = etFname.text.toString().trim()
-            val lastName = etLname.text.toString().trim()
-            val email = etEmail.text.toString().trim()
-            val link = etProject.text.toString().trim()
+        btn_submit.setOnClickListener {
+            val firstName = First_name.text.toString().trim()
+            val lastName = last_name.text.toString().trim()
+            val email = email_address.text.toString().trim()
+            val link = project_git_link.text.toString().trim()
             when {
                 firstName.isBlank() -> {
-                    etFname.error = "Enter first name"
-                    etFname.requestFocus()
+                    First_name.error = "Enter first name"
+                    First_name.requestFocus()
                     return@setOnClickListener
                 }
                 lastName.isBlank() -> {
-                    etLname.error = "Enter last name"
-                    etLname.requestFocus()
+                    last_name.error = "Enter last name"
+                    last_name.requestFocus()
                     return@setOnClickListener
                 }
                 link.isBlank() -> {
-                    etProject.error = "Enter link to you Github"
-                    etProject.requestFocus()
+                    project_git_link.error = "Enter link to you Github"
+                    project_git_link.requestFocus()
                     return@setOnClickListener
                 }
                 email.isBlank() -> {
-                    etEmail.error = "Enter Email"
-                    etEmail.requestFocus()
+                    email_address.error = "Enter Email"
+                    email_address.requestFocus()
                     return@setOnClickListener
                 }
 
@@ -80,10 +79,10 @@ class SubmitFragment : Fragment(), YesDialogClick {
     }
 
     private fun handleSubmission() {
-        val firstName = etFname.text.toString().trim()
-        val lastName = etLname.text.toString().trim()
-        val email = etEmail.text.toString().trim()
-        val link = etProject.text.toString().trim()
+        val firstName = First_name.text.toString().trim()
+        val lastName = last_name.text.toString().trim()
+        val email = email_address.text.toString().trim()
+        val link = project_git_link.text.toString().trim()
         RetrofitClient.submitInstance.submitForm(firstName, lastName, email, link)
 
             .enqueue(object : Callback<Void> {

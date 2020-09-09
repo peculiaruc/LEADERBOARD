@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.pecpaker.leaderboard.R
 import com.pecpaker.leaderboard.view.fragments.SubmitFragment
@@ -17,7 +18,7 @@ import com.pecpaker.leaderboard.view.fragments.SubmitFragment
  * Use the [DialogSubmissionSuccessfulFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DialogSubmissionSuccessfulFragment : Fragment() {
+class DialogSubmissionSuccessfulFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

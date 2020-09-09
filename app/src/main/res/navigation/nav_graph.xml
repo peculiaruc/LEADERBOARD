@@ -40,10 +40,10 @@
             android:id="@+id/to_areYouSureDialogFragment"
             app:destination="@id/areYouSureDialogFragment" />
         <action
-            android:id="@+id/to_dialogSubmissionNotSuccessfullFragment"
+            android:id="@+id/to_dialogSubmissionNotSuccessfulFragment"
             app:destination="@id/dialogSubmissionNotSuccessfulFragment" />
         <action
-            android:id="@+id/to_dialogSubmissionSuccessfullFragment"
+            android:id="@+id/to_dialogSubmissionSuccessfulFragment"
             app:destination="@id/dialogSubmissionSuccessfulFragment" />
     </fragment>
     <dialog
@@ -52,11 +52,11 @@
         android:label=""
         tools:layout="@layout/fragment_are_you_sure_dialog">
         <action
-            android:id="@+id/to_dialogSubmissionNotSuccessfulFragment"
-            app:destination="@id/dialogSubmissionNotSuccessfulFragment" />
-        <action
-            android:id="@+id/to_dialogSubmissionSuccessfulFragment"
+            android:id="@+id/action_areYouSureDialogFragment_to_dialogSubmissionSuccessfulFragment"
             app:destination="@id/dialogSubmissionSuccessfulFragment" />
+        <action
+            android:id="@+id/action_areYouSureDialogFragment_to_dialogSubmissionNotSuccessfulFragment"
+            app:destination="@id/dialogSubmissionNotSuccessfulFragment" />
     </dialog>
     <dialog
         android:id="@+id/dialogSubmissionNotSuccessfulFragment"
