@@ -4,8 +4,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pecpaker.leaderboard.R
-import com.pecpaker.leaderboard.dataSource.remote.RestClient.inflate
+import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
 import com.pecpaker.leaderboard.dataSource.response.SkillIQResponse
+import com.pecpaker.leaderboard.inflate
 import kotlinx.android.synthetic.main.list_item_skilliq.view.*
 
 class SkillIQAdapter  () : RecyclerView.Adapter<SkillIQAdapter.SkillIQViewHolder>() {
@@ -47,7 +48,7 @@ class SkillIQAdapter  () : RecyclerView.Adapter<SkillIQAdapter.SkillIQViewHolder
             Glide
                 .with(itemView.img_skill)
                 .load(items.badgeUrl)
-                .centerCrop()
+                .fitCenter()
                 .placeholder(R.drawable.ic_skill_iq)
                 .into(itemView.img_skill)
 

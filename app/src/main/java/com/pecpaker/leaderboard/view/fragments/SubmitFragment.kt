@@ -5,29 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.pecpaker.leaderboard.R
+import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
+import com.pecpaker.leaderboard.view.MainActivity
+import com.pecpaker.leaderboard.view.fragments.dialog.AreYouSureDialogFragment
+import com.pecpaker.leaderboard.view.fragments.dialog.YesDialogClick
+import kotlinx.android.synthetic.main.fragment_submit2.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
  * Use the [SubmitFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SubmitFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SubmitFragment : Fragment(), YesDialogClick {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -38,23 +41,112 @@ class SubmitFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_submit2, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SubmitFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SubmitFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        AreYouSureDialogFragment.setYesDialogClick(this)
+
+        btnSubmit.setOnClickListener {
+            val firstName = etFname.text.toString().trim()
+            val lastName = etLname.text.toString().trim()
+            val email = etEmail.text.toString().trim()
+            val link = etProject.text.toString().trim()
+            when {
+                firstName.isBlank() -> {
+                    etFname.error = "Enter first name"
+                    etFname.requestFocus()
+                    return@setOnClickListener
                 }
+                lastName.isBlank() -> {
+                    etLname.error = "Enter last name"
+                    etLname.requestFocus()
+                    return@setOnClickListener
+                }
+                link.isBlank() -> {
+                    etProject.error = "Enter link to you Github"
+                    etProject.requestFocus()
+                    return@setOnClickListener
+                }
+                email.isBlank() -> {
+                    etEmail.error = "Enter Email"
+                    etEmail.requestFocus()
+                    return@setOnClickListener
+                }
+
             }
+
+            findNavController().navigate(R.id.to_areYouSureDialogFragment)
+        }
     }
+
+    private fun handleSubmission() {
+        val firstName = etFname.text.toString().trim()
+        val lastName = etLname.text.toString().trim()
+        val email = etEmail.text.toString().trim()
+        val link = etProject.text.toString().trim()
+        RetrofitClient.submitInstance.submitForm(firstName, lastName, email, link)
+
+            .enqueue(object : Callback<Void> {
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_LONG).show()
+                    println("Submission Failure: ${t.message}")
+                    submitProgressBar.visibility = View.GONE
+                }
+
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+
+                    if (response.isSuccessful) {
+                        submitProgressBar.visibility = View.GONE
+                        findNavController().navigate(R.id.to_dialogSubmissionSuccessfulFragment)
+
+
+                    } else {
+                        submitProgressBar.visibility = View.GONE
+                        findNavController().navigate(R.id.to_dialogSubmissionNotSuccessfulFragment)
+                        Toast.makeText(
+                            requireContext(),
+                            "Submission Fail: ${response.errorBody()}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        println("Submission Fail: ${response.body()}")
+                    }
+
+                }
+            })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        MainActivity.hideToolBarTitle(requireActivity())
+        showSubmitView(requireActivity())
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showSubmitView(requireActivity())
+    }
+
+
+    override fun getSelected() {
+        handleSubmission()
+        submitProgressBar.visibility = View.VISIBLE
+    }
+
+    fun hideSubmitView() {
+
+    }
+
+    companion object {
+        //val view: View? = null
+        fun hideSubmitView(activity: FragmentActivity) {
+            activity.views.visibility = View.GONE
+        }
+
+        fun showSubmitView(activity: FragmentActivity) {
+            activity.views.visibility = View.VISIBLE
+
+        }
+    }
+
+
 }

@@ -1,11 +1,13 @@
 package com.pecpaker.leaderboard.view.toplearners
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pecpaker.leaderboard.R
-import com.pecpaker.leaderboard.dataSource.remote.RestClient.inflate
+import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
 import com.pecpaker.leaderboard.dataSource.response.LearningLearderResponse
+import com.pecpaker.leaderboard.inflate
 import kotlinx.android.synthetic.main.list_item_toplearner.view.*
 
 class LearnerLeaderAdapter () : RecyclerView.Adapter<LearnerLeaderAdapter.LearningViewHolder>() {
@@ -39,6 +41,7 @@ class LearnerLeaderAdapter () : RecyclerView.Adapter<LearnerLeaderAdapter.Learni
         )
     ) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(items: LearningLearderResponse) {
 
             itemView.text_learner_name.text = items.name

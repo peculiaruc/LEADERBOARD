@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pecpaker.leaderboard.R
 import com.pecpaker.leaderboard.dataSource.remote.ApiService
-import com.pecpaker.leaderboard.dataSource.remote.RestClient.getRetrofit
+import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
 import com.pecpaker.leaderboard.dataSource.response.SkillIQResponse
+import com.pecpaker.leaderboard.getRetrofit
 import com.pecpaker.leaderboard.model.ModelIQ
+import kotlinx.android.synthetic.main.fragment_skill_i_q.*
 import kotlinx.android.synthetic.main.list_item_skilliq.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,6 +26,7 @@ class SkillIQFragment : Fragment() {
     private var skillIQLeadersAdapter = SkillIQAdapter()
     private var allSkillIq: List<ModelIQ>? = null
     lateinit var layoutManager: LinearLayoutManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,6 +48,9 @@ class SkillIQFragment : Fragment() {
         layoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = layoutManager
 
+        skillProgressBar.visibility = View.VISIBLE
+        skill_no_text.visibility = View.VISIBLE
+
         val service = getRetrofit.create(ApiService::class.java)
         val call = service.getSkillIqLeaders()
 
@@ -55,6 +61,8 @@ class SkillIQFragment : Fragment() {
             ) {
                 if (response.code() == 200) {
                     val skillIq = response.body()!!
+                    skillProgressBar.visibility = View.GONE
+                    skill_no_text.visibility = View.GONE
                     skillIQLeadersAdapter.addItems(response.body()!!)
 
                 }
@@ -64,6 +72,8 @@ class SkillIQFragment : Fragment() {
                 text_skill_name!!.text = t.message
                 text_skil_Country!!.text = t.message
                 text_skil_score!!.text = t.message
+                skillProgressBar.visibility = View.GONE
+                skill_no_text.visibility = View.VISIBLE
             }
         })
     }

@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pecpaker.leaderboard.R
 import com.pecpaker.leaderboard.dataSource.remote.ApiService
-import com.pecpaker.leaderboard.dataSource.remote.RestClient.getRetrofit
+import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
 import com.pecpaker.leaderboard.dataSource.response.LearningLearderResponse
+import com.pecpaker.leaderboard.getRetrofit
 import com.pecpaker.leaderboard.model.Model
+import kotlinx.android.synthetic.main.fragment_learning_leader.*
 import kotlinx.android.synthetic.main.list_item_toplearner.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,13 +47,21 @@ class LearningLeaderFragment : Fragment() {
         layoutManager = LinearLayoutManager(view.context)
         recyclerView.layoutManager = layoutManager
 
+        topProgressBar.visibility = View.VISIBLE
+        learner_no_text.visibility = View.VISIBLE
+
         val service = getRetrofit.create(ApiService::class.java)
         val call = service.getLearningLeaders()
 
         call.enqueue(object : Callback<List<LearningLearderResponse>> {
-            override fun onResponse(call: Call<List<LearningLearderResponse>>, response: Response<List<LearningLearderResponse>>) {
+            override fun onResponse(
+                call: Call<List<LearningLearderResponse>>,
+                response: Response<List<LearningLearderResponse>>
+            ) {
                 if (response.code() == 200) {
                     val skillIq = response.body()!!
+                    topProgressBar.visibility = View.GONE
+                    learner_no_text.visibility = View.GONE
                     topLearnersAdapter.addItems(response.body()!!)
 
                 }
@@ -62,6 +72,8 @@ class LearningLeaderFragment : Fragment() {
                 text_learner_name!!.text = t.message
                 text_learner_Country!!.text = t.message
                 text_learner_hours!!.text = t.message
+                topProgressBar.visibility = View.GONE
+                learner_no_text.visibility = View.VISIBLE
                 //imgIq.setImageResource(R.drawable) = t.message
             }
         })
