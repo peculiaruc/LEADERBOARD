@@ -44,7 +44,7 @@ class DialogSubmissionSuccessfulFragment : DialogFragment() {
             // This method will be executed once the timer is over
             // Start your app main activity
 
-            findNavController().navigate(R.id.to_navigation_home)
+            findNavController().navigate(R.id.mainFragment)
 
         }, DIALOG_TIME_OUT)
     }
