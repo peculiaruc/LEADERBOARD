@@ -60,12 +60,12 @@
     </dialog>
     <dialog
         android:id="@+id/dialogSubmissionNotSuccessfulFragment"
-        android:name="com.pecpaker.leaderboard.view.fragments.dialog.DialogSubmissionNotSuccessfulFragment"
+        android:name="com.pecpaker.leaderboard.view.fragments.dialog.SubmissionNotSuccessfulFragment"
         android:label=""
         tools:layout="@layout/fragment_dialog_submission_not_successfull" />
     <dialog
         android:id="@+id/dialogSubmissionSuccessfulFragment"
-        android:name="com.pecpaker.leaderboard.view.fragments.dialog.DialogSubmissionSuccessfulFragment"
+        android:name="com.pecpaker.leaderboard.view.fragments.dialog.SubmissionSuccessfulFragment"
         android:label=""
         tools:layout="@layout/fragment_dialog_submission_successfull">
         <action
