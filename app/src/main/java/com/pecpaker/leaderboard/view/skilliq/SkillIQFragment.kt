@@ -71,8 +71,8 @@ class SkillIQFragment : Fragment() {
 
             override fun onFailure(call: Call<List<SkillIQResponse>>, t: Throwable) {
 
-                val intent = Intent(this, NoInternetConnectionActivity::class.java)
-                startActivity(intent)
+                val intent = Intent(getActivity(), NoInternetConnectionActivity::class.java)
+                getActivity()?.startActivity(intent)
 
 //                text_skill_name!!.text = t.message
 //                text_skil_Country!!.text = t.message
@@ -83,10 +83,4 @@ class SkillIQFragment : Fragment() {
         })
     }
 
-    private fun Intent(
-        callback: Callback<List<SkillIQResponse>>,
-        java: Class<NoInternetConnectionActivity>
-    ): Intent? {
-        TODO("Not yet implemented")
-    }
 }

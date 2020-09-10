@@ -70,8 +70,8 @@ class LearningLeaderFragment : Fragment() {
 
             override fun onFailure(call: Call<List<LearningLearderResponse>>, t: Throwable) {
 
-                val intent = Intent(this, NoInternetConnectionActivity::class.java)
-                startActivity(intent)
+                val intent = Intent(getActivity(), NoInternetConnectionActivity::class.java)
+                getActivity()?.startActivity(intent)
 
 //                text_learner_name!!.text = t.message
 //                text_learner_Country!!.text = t.message
@@ -81,13 +81,6 @@ class LearningLeaderFragment : Fragment() {
                 //imgIq.setImageResource(R.drawable) = t.message
             }
         })
-    }
-
-    private fun Intent(
-        callback: Callback<List<LearningLearderResponse>>,
-        java: Class<NoInternetConnectionActivity>
-    ): Intent? {
-        TODO("Not yet implemented")
     }
 
 }

@@ -242,8 +242,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_submit"
-            android:layout_width="104dp"
-            android:layout_height="58dp"
+            android:layout_width="139dp"
+            android:layout_height="64dp"
             android:layout_marginTop="84dp"
             android:layout_marginBottom="24dp"
             android:text="@string/submit"
