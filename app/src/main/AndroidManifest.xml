@@ -11,6 +11,7 @@
         android:roundIcon="@drawable/ic_gads"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.NoInternetConnectionActivity"></activity>
         <activity android:name=".view.SplashscrenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,9 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity">
-
-        </activity>
+        <activity android:name=".view.MainActivity"></activity>
     </application>
 
 </manifest>

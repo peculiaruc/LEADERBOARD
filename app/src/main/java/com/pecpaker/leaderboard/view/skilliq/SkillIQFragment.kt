@@ -1,5 +1,6 @@
 package com.pecpaker.leaderboard.view.skilliq
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
 import com.pecpaker.leaderboard.dataSource.response.SkillIQResponse
 import com.pecpaker.leaderboard.getRetrofit
 import com.pecpaker.leaderboard.model.ModelIQ
+import com.pecpaker.leaderboard.view.NoInternetConnectionActivity
 import kotlinx.android.synthetic.main.fragment_skill_i_q.*
 import kotlinx.android.synthetic.main.list_item_skilliq.*
 import retrofit2.Call
@@ -64,17 +66,27 @@ class SkillIQFragment : Fragment() {
                     skillProgressBar.visibility = View.GONE
                     skill_no_text.visibility = View.GONE
                     skillIQLeadersAdapter.addItems(response.body()!!)
-
                 }
             }
 
             override fun onFailure(call: Call<List<SkillIQResponse>>, t: Throwable) {
-                text_skill_name!!.text = t.message
-                text_skil_Country!!.text = t.message
-                text_skil_score!!.text = t.message
-                skillProgressBar.visibility = View.GONE
-                skill_no_text.visibility = View.VISIBLE
+
+                val intent = Intent(this, NoInternetConnectionActivity::class.java)
+                startActivity(intent)
+
+//                text_skill_name!!.text = t.message
+//                text_skil_Country!!.text = t.message
+//                text_skil_score!!.text = t.message
+//                skillProgressBar.visibility = View.GONE
+//                skill_no_text.visibility = View.VISIBLE
             }
         })
+    }
+
+    private fun Intent(
+        callback: Callback<List<SkillIQResponse>>,
+        java: Class<NoInternetConnectionActivity>
+    ): Intent? {
+        TODO("Not yet implemented")
     }
 }

@@ -1,5 +1,6 @@
 package com.pecpaker.leaderboard.view.toplearners
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.pecpaker.leaderboard.dataSource.remote.RetrofitClient
 import com.pecpaker.leaderboard.dataSource.response.LearningLearderResponse
 import com.pecpaker.leaderboard.getRetrofit
 import com.pecpaker.leaderboard.model.Model
+import com.pecpaker.leaderboard.view.NoInternetConnectionActivity
 import kotlinx.android.synthetic.main.fragment_learning_leader.*
 import kotlinx.android.synthetic.main.list_item_toplearner.*
 import retrofit2.Call
@@ -63,20 +65,29 @@ class LearningLeaderFragment : Fragment() {
                     topProgressBar.visibility = View.GONE
                     learner_no_text.visibility = View.GONE
                     topLearnersAdapter.addItems(response.body()!!)
-
                 }
-
             }
 
             override fun onFailure(call: Call<List<LearningLearderResponse>>, t: Throwable) {
-                text_learner_name!!.text = t.message
-                text_learner_Country!!.text = t.message
-                text_learner_hours!!.text = t.message
-                topProgressBar.visibility = View.GONE
-                learner_no_text.visibility = View.VISIBLE
+
+                val intent = Intent(this, NoInternetConnectionActivity::class.java)
+                startActivity(intent)
+
+//                text_learner_name!!.text = t.message
+//                text_learner_Country!!.text = t.message
+//                text_learner_hours!!.text = t.message
+//                topProgressBar.visibility = View.GONE
+//                learner_no_text.visibility = View.VISIBLE
                 //imgIq.setImageResource(R.drawable) = t.message
             }
         })
+    }
+
+    private fun Intent(
+        callback: Callback<List<LearningLearderResponse>>,
+        java: Class<NoInternetConnectionActivity>
+    ): Intent? {
+        TODO("Not yet implemented")
     }
 
 }
