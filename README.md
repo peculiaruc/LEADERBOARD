@@ -1,16 +1,41 @@
 # LEADERBOARD
 AAD-Phase-2-Project. An app that displays 20 top learners and the likes.
 
-## Screenshots
+# Screenshots
 
-![splashscreen](https://github.com/peculiaruc/LEADERBOARD/issues/1#issue-698343983)
+<table>
+<tr> 
+<td>
+  
+![splashscreen](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/splashscreen.png)
 
-![Leaderboared](https://github.com/peculiaruc/LEADERBOARD/issues/2#issue-698503274)
+</td>
+<td>
 
-![SubmitScreen](https://github.com/peculiaruc/LEADERBOARD/issues/3#issue-698507435)
+![Leaderboared](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/LearningLeaders.png)
 
-![ConfirmationScreen](https://github.com/peculiaruc/LEADERBOARD/issues/4#issue-698509465)
+</td>
+<td>
 
-![SubmissionSuccessful](https://github.com/peculiaruc/LEADERBOARD/issues/5#issue-698511695)
+![SubmitScreen](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/SkillIQ.png)
+
+</td>
+<td>
+
+![ConfirmationScreen](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/confirmation.png)
+
+</td>
+<td>
+
+![SubmissionSuccessful](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/submitScreen.png)
+
+</td>
+<td>
+
+![SuccesssfulSubmission}(https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/submitScreen.png)
+
+</td>
+</tr>
+</table>
 
 
