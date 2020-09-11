@@ -21,16 +21,16 @@ AAD-Phase-2-Project. An app that displays 20 top learners and the likes.
 </td>
 <td>
 
-![ConfirmationScreen](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/confirmation.png)
+![ConfirmationScreen](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/submitScreen.png)
 
 </td>
 <td>
 
-![SubmitScren](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/submitScreen.png)
+![SubmitScren](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/confirmation.png)
 </td>
 <td>
 
-![SuccesssfulSubmission](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/successfulSubmission.png
+![SuccesssfulSubmission](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/successfulSubmission.png)
 </td>
 </tr>
 </table>
