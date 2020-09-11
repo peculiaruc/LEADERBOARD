@@ -18,7 +18,6 @@ AAD-Phase-2-Project. An app that displays 20 top learners and the likes.
 <td>
 
 ![SkillIQ](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/SkillIQ.png)
-
 </td>
 <td>
 
@@ -28,12 +27,10 @@ AAD-Phase-2-Project. An app that displays 20 top learners and the likes.
 <td>
 
 ![SubmitScren](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/submitScreen.png)
-
 </td>
 <td>
 
-![SuccesssfulSubmission}(https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/successfulSubmission.png
-
+![SuccesssfulSubmission](https://github.com/peculiaruc/LEADERBOARD/blob/master/app/screenshots/successfulSubmission.png
 </td>
 </tr>
 </table>
